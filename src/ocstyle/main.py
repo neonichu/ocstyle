@@ -51,13 +51,11 @@ def main():
 
   for filename in filenames:
     if not os.path.isdir(filename):
-      print filename
       for part in check(filename, args.maxLineLength):
         if isinstance(part, rules.Error):
-          print 'ERROR: %s' % part
+          print '%s:%s' % (filename, part)
         else:
-          print 'unparsed: %r' % part
-    print
+          pass
 
 
 if __name__ == '__main__':
